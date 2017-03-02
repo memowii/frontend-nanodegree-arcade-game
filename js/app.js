@@ -1,10 +1,27 @@
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 var allEnemies = [];
 
+// var e1 = new Enemy();
+// var e2 = new Enemy();
+//
+// allEnemies.push(e1);
+// allEnemies.push(e2);
+
 allEnemies.push(new Enemy());
+allEnemies.push(new Enemy());
+allEnemies.push(new Enemy());
+allEnemies.push(new Enemy());
+// allEnemies.push(new Enemy());
+// allEnemies.push(new Enemy());
 
 var player = new Player();
 

@@ -1,22 +1,23 @@
 var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
-    this.x = -125;
-    this.y = this.getPosition();
+    this.x = this.getXPosition();
+    this.y = this.getYPosition();
     this.speed = this.getSpeed();
 };
 
-Enemy.prototype.getPosition = function () {
+Enemy.prototype.getYPosition = function () {
     var enemyPositions = [58, 143, 227],
-        randomPos = Math.floor(Math.random() * 3);
+        randomPos      = getRandomIntInclusive(0, 2);
 
     return enemyPositions[randomPos];
 };
 
-Enemy.prototype.getSpeed = function () {
-    min = Math.ceil(200);
-    max = Math.floor(450);
+Enemy.prototype.getXPosition = function () {
+    return getRandomIntInclusive(-250, -125);
+};
 
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+Enemy.prototype.getSpeed = function () {
+    return getRandomIntInclusive(200, 450);
 };
 
 Enemy.prototype.update = function(dt) {
