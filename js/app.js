@@ -10,18 +10,9 @@ function getRandomIntInclusive(min, max) {
 
 var allEnemies = [];
 
-// var e1 = new Enemy();
-// var e2 = new Enemy();
-//
-// allEnemies.push(e1);
-// allEnemies.push(e2);
-
-allEnemies.push(new Enemy());
-allEnemies.push(new Enemy());
-allEnemies.push(new Enemy());
-allEnemies.push(new Enemy());
-// allEnemies.push(new Enemy());
-// allEnemies.push(new Enemy());
+for (var i = 0; i < 7; i++) {
+    allEnemies.push(new Enemy());
+}
 
 var player = new Player();
 

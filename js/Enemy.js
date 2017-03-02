@@ -22,6 +22,16 @@ Enemy.prototype.getSpeed = function () {
 
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
+
+    if (this.x > 505) {
+        this.y = this.getYPosition();
+        this.x = this.getXPosition();
+    }
+
+
+    // if (global.ctx.canvas.width)
+    // console.log(global.ctx.canvas.width);
+    // console.log(document.getElementByClassName('canvas').width);
 };
 
 Enemy.prototype.render = function() {
