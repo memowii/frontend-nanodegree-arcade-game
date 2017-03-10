@@ -20,6 +20,7 @@
              * loader on that image file
              */
             urlOrArr.forEach(function(url) {
+                console.log('url = '+ url);
                 _load(url);
             });
         } else {
@@ -36,6 +37,7 @@
      */
     function _load(url) {
         if(resourceCache[url]) {
+            console.log('entró 4 <==============>');
             /* If this URL has been previously loaded it will exist within
              * our resourceCache array. Just return that image rather
              * re-loading the image.
@@ -52,12 +54,18 @@
                  * attempts to load this file in the future.
                  */
                 resourceCache[url] = img;
+                console.log(img);
 
                 /* Once the image is actually loaded and properly cached,
                  * call all of the onReady() callbacks we have defined.
                  */
+                console.log('entró 2');
                 if(isReady()) {
                     readyCallbacks.forEach(function(func) { func(); });
+                    console.log('entró 1');
+                    console.log('readyCallbacks = '+readyCallbacks.length);
+                    console.log(readyCallbacks);
+                    console.log(url);
                 }
             };
 
@@ -65,6 +73,9 @@
              * the image's onload event handler is called. Finally, point
              * the image's src attribute to the passed in URL.
              */
+            console.log('entró 3');
+            console.log(resourceCache);
+            // console.log(resourceCache.length);
             resourceCache[url] = false;
             img.src = url;
         }
@@ -83,9 +94,12 @@
      */
     function isReady() {
         var ready = true;
+        console.log(resourceCache);
         for(var k in resourceCache) {
+            console.log(resourceCache[k]);
             if(resourceCache.hasOwnProperty(k) &&
                !resourceCache[k]) {
+
                 ready = false;
             }
         }
