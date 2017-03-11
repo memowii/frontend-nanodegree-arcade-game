@@ -3,8 +3,8 @@
 // a handleInput() method.
 var Player = function () {
     this.sprite = 'images/char-boy.png';
-    this.x = 200; // 100 + 100*1
-    this.y = 380; // 220 + 80*2
+    this.x = 200;
+    this.y = 380;
 };
 
 Player.prototype.update = function (dt) {
@@ -18,7 +18,6 @@ Player.prototype.render = function () {
 Player.prototype.handleInput = function (keycode) {
 
     if (keycode === 'left' && !(this.x - 100 < 0)) {
-        console.log('entro left 1');
         this.x += -100;
     }
 
